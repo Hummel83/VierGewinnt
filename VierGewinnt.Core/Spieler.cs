@@ -23,7 +23,7 @@ namespace VierGewinnt.View
 
         public IList<Spielstein> Spielsteine => _spielsteine;
       
-        public void SpieleZug(Spalte spalte)
+        public void SpieleZug(ISpalte spalte)
         {
             if (spalte == null) throw new ArgumentNullException(nameof(spalte));
            

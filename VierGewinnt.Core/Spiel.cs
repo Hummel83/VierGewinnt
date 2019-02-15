@@ -13,7 +13,7 @@ namespace VierGewinnt.View
 
         public void StarteSpiel()
         {
-
+            throw new NotImplementedException();
         }
     }
 }

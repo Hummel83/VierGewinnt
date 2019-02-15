@@ -10,7 +10,7 @@ namespace VierGewinnt.View
     {
         private readonly IReadOnlyList<IReadOnlyList<Platz>> _plaetze;
         private readonly IReadOnlyList<Reihe> _reihen;
-        private readonly IReadOnlyList<Spalte> _spalten;
+        private readonly IReadOnlyList<ISpalte> _spalten;
 
     }
 }
