@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 
-namespace VierGewinnt.View
+namespace VierGewinnt.Core
 {
     public class Spalte : ISpalte
     {

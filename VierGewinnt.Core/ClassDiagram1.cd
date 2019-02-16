@@ -1,44 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="VierGewinnt.View.Linie">
-    <Position X="1.25" Y="2" Width="1.5" />
+  <Class Name="VierGewinnt.Core.Farbe">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAIAIAAAAAAAAAAAAAAAAAAAAgAAAAAAABAABAA=</HashCode>
+      <FileName>Farbe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VierGewinnt.Core.Platz">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VierGewinnt.Core.Linie">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Linie.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VierGewinnt.View.Reihe">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+  <Class Name="VierGewinnt.Core.Spalte">
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Reihe.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Spalte.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VierGewinnt.View.Spiel">
-    <Position X="7.75" Y="0.75" Width="1.5" />
+  <Class Name="VierGewinnt.Core.Spiel">
+    <Position X="2.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Spiel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VierGewinnt.View.Spielbrett">
-    <Position X="3.5" Y="2" Width="1.5" />
+  <Class Name="VierGewinnt.Core.Spielbrett">
+    <Position X="5.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BABAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Spielbrett.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VierGewinnt.View.Spieler">
-    <Position X="7.75" Y="3" Width="1.5" />
+  <Class Name="VierGewinnt.Core.Spieler">
+    <Position X="4" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAABAAAAAIAAAAAQAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAARAAAgAIAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Spieler.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VierGewinnt.View.Spielstein">
-    <Position X="5.5" Y="2" Width="1.5" />
+  <Class Name="VierGewinnt.Core.Spielstein">
+    <Position X="0.5" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAABAAgAAA=</HashCode>
       <FileName>Spielstein.cs</FileName>
     </TypeIdentifier>
   </Class>

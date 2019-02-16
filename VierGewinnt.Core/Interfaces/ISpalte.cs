@@ -1,4 +1,4 @@
-﻿namespace VierGewinnt.View
+﻿namespace VierGewinnt.Core
 {
     public interface ISpalte
     {

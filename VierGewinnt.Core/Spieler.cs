@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VierGewinnt.View
+namespace VierGewinnt.Core
 {
    public class Spieler
     {
         private readonly IList<Spielstein> _spielsteine;
-        private readonly string _name;
+        private readonly string _spielerName;
 
-        public Spieler(IList<Spielstein> spielstein, string name)
+        public Spieler(IList<Spielstein> spielstein, string spielerName)
         {
             if (spielstein == null) throw new ArgumentNullException(nameof(spielstein));
-            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
+            if (string.IsNullOrWhiteSpace(spielerName)) throw new ArgumentNullException(nameof(spielerName));
 
             _spielsteine = spielstein;
-            _name = name;
+            _spielerName = spielerName;
         }
-        public string Name => _name;
+        public string SpielerName => _spielerName;
 
         public IList<Spielstein> Spielsteine => _spielsteine;
       
