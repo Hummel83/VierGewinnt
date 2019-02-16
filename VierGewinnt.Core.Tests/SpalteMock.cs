@@ -1,5 +1,4 @@
-﻿using VierGewinnt.View;
-
+﻿
 namespace VierGewinnt.Core.Tests
 {
     public class SpalteMock : ISpalte

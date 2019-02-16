@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using VierGewinnt.View;
+using VierGewinnt.Core;
 using Xunit;
 
 namespace VierGewinnt.Core.Tests
@@ -14,10 +14,10 @@ namespace VierGewinnt.Core.Tests
             // Arrange
             var spielsteinDummy = new List<Spielstein>()
                                  {
-                                     new Spielstein()
+                                     new Spielstein(new Farbe(120,0,0), "Bratwurst")
                                  };
             var initalCount = spielsteinDummy.Count;
-            var testTarget = new Spieler(spielsteinDummy, "Barwurst");
+            var testTarget = new Spieler(spielsteinDummy, "Bartwurst");
             var spalteDummy = new SpalteMock();
 
             // Act
@@ -33,10 +33,10 @@ namespace VierGewinnt.Core.Tests
             // Arrange
             var spielsteinDummy = new List<Spielstein>()
                                  {
-                                     new Spielstein()
+                                     new Spielstein(new Farbe(120,0,0), "Bratwurst")
                                  };
             
-            var testTarget = new Spieler(spielsteinDummy, "Barwurst");
+            var testTarget = new Spieler(spielsteinDummy, "Bartwurst");
             var spalteMock = new SpalteMock();
 
             // Act

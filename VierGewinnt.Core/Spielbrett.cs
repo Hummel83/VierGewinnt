@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VierGewinnt.View
+namespace VierGewinnt.Core
 {
    public class Spielbrett
     {
@@ -13,4 +13,6 @@ namespace VierGewinnt.View
         private readonly IReadOnlyList<ISpalte> _spalten;
 
     }
+
+   
 }
