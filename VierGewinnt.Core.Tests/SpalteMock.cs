@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace VierGewinnt.Core.Tests
 {
     public class SpalteMock : ISpalte
@@ -8,10 +9,11 @@ namespace VierGewinnt.Core.Tests
         {
             _anzahlLasseSpielsteinFallenAufrufe++;
         }
-        public bool WurdeLAsseSPielsteinFallenGenauEinmalAufgerufen
+        public bool WurdeLasseSPielsteinFallenGenauEinmalAufgerufen
         {
             get { return _anzahlLasseSpielsteinFallenAufrufe == 1; }
         }
 
+        public bool IstSpalteVoll => throw new NotSupportedException();
     }
 }

@@ -58,7 +58,7 @@ namespace VierGewinnt.Core.Tests
                 new Platz{Spielstein = new Spielstein(new Farbe(128,0,0), "Draht")},
                 new Platz{Spielstein = new Spielstein(new Farbe(0,128,0), "Muh")},
                 new Platz{Spielstein = new Spielstein(new Farbe(128,0,0), "Draht")},
-                new Platz{Spielstein = new Spielstein(new Farbe(0,128,0), "Muh")},
+                new Platz{Spielstein = new Spielstein(new Farbe(128,0,0), "Draht")},
                 new Platz(),
                 new Platz()
             };
@@ -67,7 +67,7 @@ namespace VierGewinnt.Core.Tests
 
             var spielerName = testTarget.UeberpruefeObEinSpielerVierInEinerReiheHat();
 
-            Assert.Null( spielerName);
+            Assert.Null(spielerName);
         }
 
     }

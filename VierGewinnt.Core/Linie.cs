@@ -31,6 +31,7 @@ namespace VierGewinnt.Core
                 {
                     counter = 0;
                     aktuellerSpielername = null;
+                    continue;
                 }
                 if (aktuellerSpielername != spielstein.SpielerName)
                 {
