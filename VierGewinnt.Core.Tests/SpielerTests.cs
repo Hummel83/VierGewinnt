@@ -42,7 +42,7 @@ namespace VierGewinnt.Core.Tests
             // Act
             testTarget.SpieleZug(spalteMock);
 
-            Assert.True(spalteMock.WurdeLAsseSPielsteinFallenGenauEinmalAufgerufen);
+            Assert.True(spalteMock.WurdeLasseSPielsteinFallenGenauEinmalAufgerufen);
         }
 
     }
