@@ -1,19 +1,19 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 
+assembly_info:
+patch: true
+file: AssemblyInfo.*
+assembly_version: "{version}"
+assembly_file_version: "{version}"
+assembly_informational_version: "{version}"
+
+
 before_build:
 - nuget restore
-- nuget install OpenCover -OutputDirectory packages -Version 4.7.922
-- nuget install Codecov -OutputDirectory packages -Version 1.3.0
-- nuget install xunit.runner.console -OutputDirectory packages -Version 2.4.1
 
 
 build:
   project: VierGewinnt.sln
-  verbosity: minimal
 
-test_script:
-- .\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.runner.console.x86.exe" -targetargs:".\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -output:".\MyProject_coverage.xml"
 
-#upload report
-- .\packages\Codecov.1.3.0\tools\codecov.exe -f "MyProject_coverage.xml"
