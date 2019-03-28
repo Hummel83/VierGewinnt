@@ -1,0 +1,14 @@
+image: Visual Studio 2017
+
+before_build:
+- nuget restore
+
+build:
+  project: VierGewinnt.sln
+  verbosity: minimal
+
+test_script:
+#- .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:".\packages\xunit.runner.console.2.4.1\tools\net471\xunit.console.x86.exe" -targetargs:".VierGewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -output:".\MyProject_coverage.xml"
+
+#upload report
+#- .\packages\Codecov.1.1.0\tools\codecov.exe -f "MyProject_coverage.xml"
