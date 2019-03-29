@@ -6,30 +6,30 @@ before_build:
 - choco install opencover.portable
 - choco install codecov
 
-- ps: cd..
-- ps: cd..
+#- ps: cd..
+#- ps: cd..
+#- ps: cd Tools
+#- ps: cd Xunit20
 - ps: dir
-- ps: cd Tools
-- ps: cd Xunit20
-- ps: dir
+- ps: cd..
 - ps: cd..
 - ps: cd Users
 
 
-
-assembly_info:
-  patch: true
-  file: AssemblyInfo.cs
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}-rc1'
    
 
 build:
   project: VierGewinnt.sln
   verbosity: minimal
 
+ assembly_info:
+ patch: true
+ file: AssemblyInfo.cs
+ assembly_version: '{version}'
+ assembly_file_version: '{version}'
+ assembly_informational_version: '{version}-rc1'
+
 test_script:
-- OpenCover\OpenCover.Console.exe -register:user -target:".\Tools\Xunit20\xunit.runner.console.exe" -targetargs:"C:\projects\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
+- OpenCover\OpenCover.Console.exe -register:user -target:".\Tools\Xunit20\xunit.console.exe" -targetargs:"C:\projects\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
 
 - codecov -f "MyProject_coverage.xml
