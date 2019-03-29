@@ -8,7 +8,9 @@ assembly_info:
  assembly_file_version: '{version}'
  assembly_informational_version: '{version}-rc1'
  
+before_build:
+- nuget restore
 
 build:
-  project: VierGewinnt.sln
-  verbosity: minimal
+ project: VierGewinnt.sln
+ verbosity: minimal
