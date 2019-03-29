@@ -10,17 +10,19 @@ assembly_info:
  
 before_build:
 - nuget restore
-- choco install opencover.portable
-- choco install codecov
+#- choco install opencover.portable
+#- choco install codecov
  
 
-build:
-  project: VierGewinnt.sln
-  verbosity: minimal
+#build:
+#  project: VierGewinnt.sln
+#  verbosity: minimal
 
-
+build_script:
+ - msbuild /verbosity:quiet "VierGewinnt"
 
 test_script:
-- OpenCover\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.exe" -targetargs:"C:\projects\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
+- OpenCover\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:" .\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
 
+after_test:
 - codecov -f "MyProject_coverage.xml
