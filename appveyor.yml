@@ -9,8 +9,10 @@ before_build:
 - ps: cd..
 - ps: cd..
 - ps: dir
-- ps: cd..
+- ps: cd Tools
 - ps: dir
+- ps: cd..
+- ps: cd User
 
 
 

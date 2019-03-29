@@ -11,7 +11,7 @@ namespace VierGewinnt.Core
         private readonly Farbe _farbe;
         private readonly string _spielerName;
 
-        public Spielstein( Farbe farbe, string spielerName)
+        public Spielstein(Farbe farbe, string spielerName)
         {
             if (string.IsNullOrEmpty(spielerName))
             {
