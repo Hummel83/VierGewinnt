@@ -5,6 +5,7 @@ before_build:
 - nuget restore
 - choco install opencover.portable
 - choco install codecov
+#- choco install xunit.runner.console
 
 assembly_info:
   patch: true
@@ -19,5 +20,5 @@ build:
   verbosity: minimal
 
 test_script:
-- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\VierGewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
+- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\VierGewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.0\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
 - codecov -f "MyProject_coverage.xml
