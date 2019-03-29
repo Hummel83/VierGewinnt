@@ -21,6 +21,7 @@ before_build:
 - ps: cd..
 - ps: cd..
 - ps: cd Users
+- ps: dir
 
 
    
@@ -32,6 +33,6 @@ build:
 
 
 test_script:
-- OpenCover\OpenCover.Console.exe -register:user -target:".\Tools\Xunit20\xunit.console.exe" -targetargs:"C:\projects\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
+- OpenCover\OpenCover.Console.exe -register:user -target:"C:\Tools\Xunit20\xunit.console.exe" -targetargs:"C:\projects\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
 
 - codecov -f "MyProject_coverage.xml
