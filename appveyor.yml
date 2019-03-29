@@ -28,12 +28,6 @@ build:
   verbosity: minimal
 
 test_script:
-- OpenCover\OpenCover.Console.exe 
--register:user 
--target:"%xunit20%\xunit.console.x86.exe" 
--targetargs:"C:\projects\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll 
--noshadow" 
--filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" 
--output:".\MyProject_coverage.xml"
+- OpenCover\OpenCover.Console.exe -register:user -target:"\packages\xunit.runner.console\2.4.1\tools\net472\xunit.console.exe" -targetargs:"C:\projects\viergewinnt\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll -noshadow" -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.View.WPF*]*" -output:".\MyProject_coverage.xml"
 
 - codecov -f "MyProject_coverage.xml
