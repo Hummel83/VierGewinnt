@@ -25,7 +25,6 @@ namespace VierGewinnt.Core.Tests
             var spielerName = testTarget.UeberpruefeObEinSpielerVierInEinerReiheHat();
 
             Assert.Equal("Draht", spielerName);
-
         }
 
         [Fact]  
@@ -69,8 +68,5 @@ namespace VierGewinnt.Core.Tests
 
             Assert.Null(spielerName);
         }
-
-    }
-
-   
+    }   
 }
