@@ -11,3 +11,4 @@ assembly_info:
 
 build:
   project: VierGewinnt.sln
+  verbosity: minimal
