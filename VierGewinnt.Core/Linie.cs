@@ -18,7 +18,6 @@ namespace VierGewinnt.Core
         {
             get   {return _plaetze;}
         }
-
         public string UeberpruefeObEinSpielerVierInEinerReiheHat()
         {
             var counter = 0;
@@ -47,7 +46,5 @@ namespace VierGewinnt.Core
             }
             return null;
         }
-    }
-
-   
+    }   
 }

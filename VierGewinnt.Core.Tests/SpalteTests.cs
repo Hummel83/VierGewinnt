@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace VierGewinnt.Core.Tests
-{
-    
+{  
     public class SpalteTests
     {
         [Fact]
@@ -46,7 +44,6 @@ namespace VierGewinnt.Core.Tests
             var testTarget = new Spalte(plaetze);           
           
             Assert.Throws<InvalidOperationException>(() => testTarget.LasseSpielsteinFallen(spielstein));
-
         }
 
         [Fact]
@@ -79,6 +76,5 @@ namespace VierGewinnt.Core.Tests
 
             Assert.True(testTarget.IstSpalteVoll);
         }
-
     }
 }

@@ -23,8 +23,7 @@ namespace VierGewinnt.Core.Tests
             // Act
             testTarget.SpieleZug(spalteDummy);
 
-            Assert.Equal(testTarget.Spielsteine.Count, initalCount-1);
-            
+            Assert.Equal(testTarget.Spielsteine.Count, initalCount-1);            
         }
 
         [Fact]
