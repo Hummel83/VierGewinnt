@@ -1,9 +1,18 @@
 version: 1.0.{build}
-image: Visual Studio 2017
+image: Visual Studio 2019
 
+# clone directory
+clone_folder: c:\projects\VierGewinnt
 
 before_build:
 - nuget restore
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "1.0.{build}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}"
 
 build:
   project: VierGewinnt.sln
