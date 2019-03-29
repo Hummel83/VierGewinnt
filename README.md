@@ -6,5 +6,5 @@ Code aus YouTube Videos nachbauen
 
 [![Build Status](https://travis-ci.com/Hummel83/VierGewinnt.svg?branch=master)](https://travis-ci.com/Hummel83/VierGewinnt
 )
-[![codecov](https://codecov.io/gh/Hummel83/VierGewinnt/branch/master/graph/badge.svg)](https://codecov.io/gh/Hummel83/VierGewinnt
+[![codecov](https://codecov.io/gh/Hummel83/VierGewinnt/branch/master/graph/badge.svg)(https://codecov.io/gh/Hummel83/VierGewinnt
 /branch/master)
