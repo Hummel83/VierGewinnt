@@ -8,10 +8,8 @@ namespace VierGewinnt.Core
         private readonly IReadOnlyList<Platz> _plaetze;
 
         protected Linie(IReadOnlyList<Platz> plaetze)
-        {
-            if (plaetze == null) throw new ArgumentException("plaetze");
-
-            _plaetze = plaetze;
+        {  
+            _plaetze = plaetze ?? throw new ArgumentNullException(nameof(plaetze));
         }
 
         public IReadOnlyList<Platz> Plaetze

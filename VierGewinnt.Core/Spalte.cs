@@ -6,10 +6,10 @@ namespace VierGewinnt.Core
 {
     public class Spalte : Linie, ISpalte
     {
-        //private readonly IReadOnlyList<Platz> _plaetze;
+        private readonly IReadOnlyList<Platz> plaetze;
 
         public Spalte(IReadOnlyList<Platz> plaetze) : base(plaetze)
-        {
+        {            
         }
 
         public void LasseSpielsteinFallen(Spielstein spielstein)
@@ -29,5 +29,7 @@ namespace VierGewinnt.Core
         {
             get { return Plaetze.All(platz => platz.Spielstein != null); }      
         }
+
+        public IReadOnlyList<Platz> Plaetze1 => plaetze;
     }
 }

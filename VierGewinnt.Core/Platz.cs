@@ -4,10 +4,5 @@
     {
         public Spielstein Spielstein { get; set; }
 
-
-
-
-
-
     }
 }
