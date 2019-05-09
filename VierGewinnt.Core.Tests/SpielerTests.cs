@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VierGewinnt.Core;
+﻿using System.Collections.Generic;
 using Xunit;
 
 namespace VierGewinnt.Core.Tests
@@ -23,7 +20,7 @@ namespace VierGewinnt.Core.Tests
             // Act
             testTarget.SpieleZug(spalteDummy);
 
-            Assert.Equal(testTarget.Spielsteine.Count, initalCount-1);            
+            Assert.Equal(testTarget.Spielsteine.Count, initalCount - 1);
         }
 
         [Fact]
@@ -34,15 +31,14 @@ namespace VierGewinnt.Core.Tests
                                  {
                                      new Spielstein(new Farbe(120,0,0), "Bratwurst")
                                  };
-            
+
             var testTarget = new Spieler(spielsteinDummy, "Bartwurst");
             var spalteMock = new SpalteMock();
 
             // Act
             testTarget.SpieleZug(spalteMock);
 
-            Assert.True(spalteMock.WurdeLasseSPielsteinFallenGenauEinmalAufgerufen);
+            Assert.True(spalteMock.WurdeLasseSpielsteinFallenGenauEinmalAufgerufen);
         }
-
     }
 }

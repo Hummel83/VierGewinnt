@@ -3,6 +3,5 @@
     public class Platz
     {
         public Spielstein Spielstein { get; set; }
-
     }
 }

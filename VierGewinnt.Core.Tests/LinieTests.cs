@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VierGewinnt.Core;
+﻿using System.Collections.Generic;
 
 using Xunit;
 
@@ -11,7 +8,7 @@ namespace VierGewinnt.Core.Tests
     {
         [Fact]
         public void VierInEinerReiheWerdenKorrektErkannt()
-        {            
+        {
             var plaetze = new List<Platz>
             {
                 new Platz{Spielstein = new Spielstein(new Farbe(128,0,0), "Draht")},
@@ -27,8 +24,8 @@ namespace VierGewinnt.Core.Tests
             Assert.Equal("Draht", spielerName);
         }
 
-        [Fact]  
-        public void  VierInEinerReiheMitUnterbrechnungWerdenKorrektErkannt()
+        [Fact]
+        public void VierInEinerReiheMitUnterbrechnungWerdenKorrektErkannt()
         {
             var plaetze = new List<Platz>
             {
@@ -47,7 +44,6 @@ namespace VierGewinnt.Core.Tests
 
             Assert.Equal("Draht", spielerName);
         }
-
 
         [Fact]
         public void KeinGewinnerWirdKorrektErkannt()
@@ -68,5 +64,5 @@ namespace VierGewinnt.Core.Tests
 
             Assert.Null(spielerName);
         }
-    }   
+    }
 }

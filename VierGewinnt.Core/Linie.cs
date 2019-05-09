@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace VierGewinnt.Core
 {
@@ -8,18 +8,14 @@ namespace VierGewinnt.Core
         private readonly IReadOnlyList<Platz> _plaetze;
 
         protected Linie(IReadOnlyList<Platz> plaetze)
-        {  
+        {
             _plaetze = plaetze ?? throw new ArgumentNullException(nameof(plaetze));
         }
 
-        public IReadOnlyList<Platz> Plaetze
-        {
-            get   {return _plaetze;}
-        }
         public string UeberpruefeObEinSpielerVierInEinerReiheHat()
         {
             var counter = 0;
-            string aktuellerSpielername =null;
+            string aktuellerSpielername = null;
 
             foreach (var platz in _plaetze)
             {
@@ -35,7 +31,7 @@ namespace VierGewinnt.Core
                     aktuellerSpielername = spielstein.SpielerName;
                     counter = 1;
                 }
-                counter ++;
+                counter++;
 
                 if (counter >= 4)
                 {
@@ -44,5 +40,10 @@ namespace VierGewinnt.Core
             }
             return null;
         }
-    }   
+
+        public IReadOnlyList<Platz> Plaetze
+        {
+            get { return _plaetze; }
+        }
+    }
 }

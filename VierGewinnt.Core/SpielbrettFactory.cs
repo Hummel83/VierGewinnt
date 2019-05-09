@@ -4,8 +4,7 @@ using System.Collections.Generic;
 namespace VierGewinnt.Core
 {
     public class SpielbrettFactory
-    {      
-
+    {
         public Spielbrett Erstelle(int reihenAnzahl, int spaltenAnzahl)
         {
             if (spaltenAnzahl < 2) throw new ArgumentOutOfRangeException("spaltenAnzahl", "Die Spalte ist zu klein.");
@@ -34,8 +33,8 @@ namespace VierGewinnt.Core
                 spalten.Add(new Spalte(spaltenplaetze));
             }
 
-            // Reihen 
-           var reihen = new List<Reihe>();
+            // Reihen
+            var reihen = new List<Reihe>();
             for (int i = 0; i < reihenAnzahl; i++)
             {
                 var reihenplaetze = new List<Platz>();
@@ -49,27 +48,11 @@ namespace VierGewinnt.Core
             var diagonale = new List<Diagonale>();
 
             // Diagonalen von links oben nach rechts unten
-           
+
             for (int i = 0; i < spaltenAnzahl; i++)
             {
                 var spaltenIndex = i;
                 var reihenIndex = 0;
-                var diagonalenPlaetze = new List<Platz>();
-                while (spaltenIndex< spaltenAnzahl && reihenIndex < reihenAnzahl)
-                {
-                    diagonalenPlaetze.Add(plaetze[spaltenIndex][reihenIndex]);
-                    spaltenIndex++;
-                    reihenIndex++;                    
-                }
-                if (diagonalenPlaetze.Count >=4)
-                {
-                    diagonale.Add(new Diagonale(diagonalenPlaetze));                   
-                }               
-            }
-            for (int j = 1; j < reihenAnzahl; j++)
-            {
-                var spaltenIndex = 0;
-                    var reihenIndex = j;
                 var diagonalenPlaetze = new List<Platz>();
                 while (spaltenIndex < spaltenAnzahl && reihenIndex < reihenAnzahl)
                 {
@@ -81,7 +64,22 @@ namespace VierGewinnt.Core
                 {
                     diagonale.Add(new Diagonale(diagonalenPlaetze));
                 }
-
+            }
+            for (int j = 1; j < reihenAnzahl; j++)
+            {
+                var spaltenIndex = 0;
+                var reihenIndex = j;
+                var diagonalenPlaetze = new List<Platz>();
+                while (spaltenIndex < spaltenAnzahl && reihenIndex < reihenAnzahl)
+                {
+                    diagonalenPlaetze.Add(plaetze[spaltenIndex][reihenIndex]);
+                    spaltenIndex++;
+                    reihenIndex++;
+                }
+                if (diagonalenPlaetze.Count >= 4)
+                {
+                    diagonale.Add(new Diagonale(diagonalenPlaetze));
+                }
             }
 
             // Diagonalen von rechts oben nach links unten
@@ -111,7 +109,7 @@ namespace VierGewinnt.Core
 
                 var diagonalenPlaetze = new List<Platz>();
 
-                while (spaltenIndex >=0 && reihenIndex < reihenAnzahl)
+                while (spaltenIndex >= 0 && reihenIndex < reihenAnzahl)
                 {
                     diagonalenPlaetze.Add(plaetze[spaltenIndex][reihenIndex]);
                     spaltenIndex--;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Xunit;
 
 namespace VierGewinnt.Core.Tests
-{  
+{
     public class SpalteTests
     {
         [Fact]
@@ -21,7 +21,7 @@ namespace VierGewinnt.Core.Tests
 
             for (int i = 0; i < plaetze.Count; i++)
             {
-                if (i== 0)
+                if (i == 0)
                 {
                     Assert.Equal(spielstein, plaetze[i].Spielstein);
                     continue;
@@ -31,8 +31,8 @@ namespace VierGewinnt.Core.Tests
             }
         }
 
-        [Fact]         
-        public  void LasseSpielsteinFallenLoestFehlerAus()
+        [Fact]
+        public void LasseSpielsteinFallenLoestFehlerAus()
         {
             var spielstein = new Spielstein(new Farbe(0, 0, 0), "Bratwurst");
             var plaetze = new List<Platz>();
@@ -41,8 +41,8 @@ namespace VierGewinnt.Core.Tests
                 plaetze.Add(new Platz { Spielstein = spielstein });
             }
 
-            var testTarget = new Spalte(plaetze);           
-          
+            var testTarget = new Spalte(plaetze);
+
             Assert.Throws<InvalidOperationException>(() => testTarget.LasseSpielsteinFallen(spielstein));
         }
 
@@ -60,8 +60,9 @@ namespace VierGewinnt.Core.Tests
 
             var testTarget = new Spalte(plaetze);
 
-            Assert.False(testTarget.IstSpalteVoll);                 
+            Assert.False(testTarget.IstSpalteVoll);
         }
+
         [Fact]
         public void IstSpalteVollGibtTrueZurueckAllePlaetzeVollSind()
         {
@@ -70,7 +71,7 @@ namespace VierGewinnt.Core.Tests
             for (int i = 0; i < 6; i++)
             {
                 plaetze.Add(new Platz { Spielstein = spielstein });
-            }               
+            }
 
             var testTarget = new Spalte(plaetze);
 
