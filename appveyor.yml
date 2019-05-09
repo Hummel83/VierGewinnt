@@ -13,7 +13,13 @@ assembly_info:
 
 before_build:
 - nuget restore
+- choco install opencover.portable
+- choco install codecov
 
 build:
   project: VierGewinnt.sln
   verbosity: normal
+
+  test_script:
+- OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\VierGewinnt.Core.Tests\bin\Debug\netcoreapp2.2\VierGewinnt.Core.Tests.dll.dll -noshadow" -output:".\MyProject_coverage.xml"
+- codecov -f "MyProject_coverage.xml
