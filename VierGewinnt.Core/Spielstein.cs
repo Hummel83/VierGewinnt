@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VierGewinnt.Core
 {
@@ -14,16 +10,14 @@ namespace VierGewinnt.Core
         public Spielstein(Farbe farbe, string spielerName)
         {
             if (string.IsNullOrEmpty(spielerName))
-            {
-                throw new ArgumentException("message", nameof(spielerName));
-            }
+            {throw new ArgumentException("message", nameof(spielerName));}
 
             _farbe = farbe ?? throw new ArgumentNullException(nameof(farbe));
             _spielerName = spielerName;
         }
 
-        public Farbe Farbe { get { return _farbe; } }
+        public Farbe Farbe => _farbe;
 
-        public string SpielerName { get { return _spielerName; } }
+        public string SpielerName => _spielerName;
     }
 }

@@ -4,16 +4,25 @@ image: Visual Studio 2017
 
 platform: Any CPU
 
-assembly_info:
+dotnet_csproj:
   patch: true
-  file: '**\AssemblyInfo.*'
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
   assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+
 
 before_build:
 - nuget restore
+- choco install dotnetcore-sdk
+- choco install codecov
 
 build:
   project: VierGewinnt.sln
   verbosity: normal
+
+test_script:
+- OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[VierGewinnt.Core*]* -[VierGewinnt.Core.Tests*]*" -output:".\MyProject_coverage.xml" -oldstyle
+- codecov -f ".\MyProject_coverage.xml"

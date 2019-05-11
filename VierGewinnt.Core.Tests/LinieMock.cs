@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using VierGewinnt.Core;
-
+﻿using System.Collections.Generic;
 
 namespace VierGewinnt.Core.Tests
 {

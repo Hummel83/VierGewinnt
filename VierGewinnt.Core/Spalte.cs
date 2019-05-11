@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace VierGewinnt.Core
@@ -9,25 +9,25 @@ namespace VierGewinnt.Core
         private readonly IReadOnlyList<Platz> plaetze;
 
         public Spalte(IReadOnlyList<Platz> plaetze) : base(plaetze)
-        {            
+        {
         }
 
         public void LasseSpielsteinFallen(Spielstein spielstein)
         {
             foreach (var platz in Plaetze)
             {
-                if (platz.Spielstein ==null)
+                if (platz.Spielstein == null)
                 {
                     platz.Spielstein = spielstein;
                     return;
                 }
             }
             throw new InvalidOperationException("Die Spalte ist bereits voll");
-               
         }
+
         public bool IstSpalteVoll
         {
-            get { return Plaetze.All(platz => platz.Spielstein != null); }      
+            get { return Plaetze.All(platz => platz.Spielstein != null); }
         }
 
         public IReadOnlyList<Platz> Plaetze1 => plaetze;
