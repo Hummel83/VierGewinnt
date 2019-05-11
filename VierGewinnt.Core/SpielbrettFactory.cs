@@ -5,125 +5,149 @@ namespace VierGewinnt.Core
 {
     public class SpielbrettFactory
     {
+        private int _spaltenAnzahl;
+        private int _reihenAnzahl;
+        private Platz[][] _plaetze;
+        private List<Spalte> _spalten;
+        private List<Reihe> _reihen;
+        private List<Diagonale> _diagonale;
+
         public Spielbrett Erstelle(int reihenAnzahl, int spaltenAnzahl)
         {
             if (spaltenAnzahl < 2) throw new ArgumentOutOfRangeException("spaltenAnzahl", "Die Spalte ist zu klein.");
-            if (reihenAnzahl < 2) throw new ArgumentOutOfRangeException("reihenAnzahl", "Die Spalte ist zu klein.");
+            if (reihenAnzahl < 2) throw new ArgumentOutOfRangeException("reihenAnzahl", "Die Reihe ist zu klein.");
 
-            //  2-dimensionaler Array aus Plätzen erzeugen
-            var plaetze = new Platz[spaltenAnzahl][];
-            for (int i = 0; i < spaltenAnzahl; i++)
+            _reihenAnzahl = reihenAnzahl;
+            _spaltenAnzahl = spaltenAnzahl;
+
+            ErzeugeSpielbrettArray();
+            ErzeugeSpalten();
+            ErzeugeReihen();
+            ErzeugeDiagonale();
+
+            return new Spielbrett(_plaetze, _reihen, _spalten, _diagonale);
+        }
+
+        private Platz[][] ErzeugeSpielbrettArray()
+        {
+            _plaetze = new Platz[_spaltenAnzahl][];
+            for (var i = 0; i < _spaltenAnzahl; i++)
             {
-                plaetze[i] = new Platz[reihenAnzahl];
-                for (int j = 0; j < reihenAnzahl; j++)
-                {
-                    plaetze[i][j] = new Platz();
-                }
+                _plaetze[i] = new Platz[_reihenAnzahl];
+                for (var j = 0; j < _reihenAnzahl; j++) _plaetze[i][j] = new Platz(i, j);
             }
 
-            // Spalten
-            var spalten = new List<Spalte>();
-            for (int i = 0; i < spaltenAnzahl; i++)
+            return _plaetze;
+        }
+
+        private List<Spalte> ErzeugeSpalten()
+        {
+            _spalten = new List<Spalte>();
+            for (var aktuelleSpalte = 0; aktuelleSpalte < _spaltenAnzahl; aktuelleSpalte++)
             {
                 var spaltenplaetze = new List<Platz>();
-                for (int j = 0; j < reihenAnzahl; j++)
+                for (var aktuelleReihe = 0; aktuelleReihe < _reihenAnzahl; aktuelleReihe++)
                 {
-                    spaltenplaetze.Add(plaetze[i][j]);
+                    spaltenplaetze.Add(_plaetze[aktuelleSpalte][aktuelleReihe]);
                 }
-                spalten.Add(new Spalte(spaltenplaetze));
+                    
+                _spalten.Add(new Spalte(spaltenplaetze));
             }
 
-            // Reihen
-            var reihen = new List<Reihe>();
-            for (int i = 0; i < reihenAnzahl; i++)
+            return _spalten;
+        }
+
+        private List<Reihe> ErzeugeReihen()
+        {
+            _reihen = new List<Reihe>();
+            for (var aktuelleReihe = 0; aktuelleReihe < _reihenAnzahl; aktuelleReihe++)
             {
                 var reihenplaetze = new List<Platz>();
-                for (int j = 0; j < spaltenAnzahl; j++)
+                for (var aktuelleSpalte = 0; aktuelleSpalte < _spaltenAnzahl; aktuelleSpalte++)
                 {
-                    reihenplaetze.Add(plaetze[i][j]);
+                    reihenplaetze.Add(_plaetze[aktuelleSpalte][aktuelleReihe]);
                 }
-                reihen.Add(new Reihe(reihenplaetze));
+                _reihen.Add(new Reihe(reihenplaetze));
             }
+
+            return _reihen;
+        }
+
+        private List<Diagonale> ErzeugeDiagonale()
+        {
             // Diagonalen
-            var diagonale = new List<Diagonale>();
+            _diagonale = new List<Diagonale>();
+            var diagnoalenrichtung = Diagnoalenrichtung.RechtsUnten;
 
             // Diagonalen von links oben nach rechts unten
 
-            for (int i = 0; i < spaltenAnzahl; i++)
+            for (var aktuelleSpalte = 0; aktuelleSpalte < _spaltenAnzahl; aktuelleSpalte++)
             {
-                var spaltenIndex = i;
+                var spaltenIndex = aktuelleSpalte;
                 var reihenIndex = 0;
                 var diagonalenPlaetze = new List<Platz>();
-                while (spaltenIndex < spaltenAnzahl && reihenIndex < reihenAnzahl)
+                while (spaltenIndex < _spaltenAnzahl && reihenIndex < _reihenAnzahl)
                 {
-                    diagonalenPlaetze.Add(plaetze[spaltenIndex][reihenIndex]);
+                    diagonalenPlaetze.Add(_plaetze[spaltenIndex][reihenIndex]);
                     spaltenIndex++;
                     reihenIndex++;
                 }
-                if (diagonalenPlaetze.Count >= 4)
-                {
-                    diagonale.Add(new Diagonale(diagonalenPlaetze));
-                }
+
+                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(aktuelleSpalte,0, diagnoalenrichtung, diagonalenPlaetze));
             }
-            for (int j = 1; j < reihenAnzahl; j++)
+
+            for (var aktuelleReihe = 1; aktuelleReihe < _reihenAnzahl; aktuelleReihe++)
             {
                 var spaltenIndex = 0;
-                var reihenIndex = j;
+                var reihenIndex = aktuelleReihe;
                 var diagonalenPlaetze = new List<Platz>();
-                while (spaltenIndex < spaltenAnzahl && reihenIndex < reihenAnzahl)
+                while (spaltenIndex < _spaltenAnzahl && reihenIndex < _reihenAnzahl)
                 {
-                    diagonalenPlaetze.Add(plaetze[spaltenIndex][reihenIndex]);
+                    diagonalenPlaetze.Add(_plaetze[spaltenIndex][reihenIndex]);
                     spaltenIndex++;
                     reihenIndex++;
                 }
-                if (diagonalenPlaetze.Count >= 4)
-                {
-                    diagonale.Add(new Diagonale(diagonalenPlaetze));
-                }
+
+                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(0, aktuelleReihe, diagnoalenrichtung, diagonalenPlaetze));
             }
 
             // Diagonalen von rechts oben nach links unten
-
-            for (int i = 0; i < spaltenAnzahl; i++)
+            diagnoalenrichtung = Diagnoalenrichtung.LinksUnten;
+            for (var aktuelleSpalte = 0; aktuelleSpalte < _spaltenAnzahl; aktuelleSpalte++)
             {
-                var spaltenIndex = i;
+                var spaltenIndex = aktuelleSpalte;
                 var reihenIndex = 0;
 
                 var diagonalenPlaetze = new List<Platz>();
 
-                while (spaltenIndex >= 0 && reihenIndex < reihenAnzahl)
+                while (spaltenIndex >= 0 && reihenIndex < _reihenAnzahl)
                 {
-                    diagonalenPlaetze.Add(plaetze[spaltenIndex][reihenIndex]);
+                    diagonalenPlaetze.Add(_plaetze[spaltenIndex][reihenIndex]);
                     spaltenIndex--;
                     reihenIndex++;
                 }
-                if (diagonalenPlaetze.Count >= 4)
-                {
-                    diagonale.Add(new Diagonale(diagonalenPlaetze));
-                }
+
+                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(aktuelleSpalte,0, diagnoalenrichtung, diagonalenPlaetze));
             }
-            for (int j = 1; j < reihenAnzahl; j++)
+
+            for (var aktuelleReihe = 1; aktuelleReihe < _reihenAnzahl; aktuelleReihe++)
             {
-                var spaltenIndex = spaltenAnzahl - 1;
-                var reihenIndex = j;
+                var spaltenIndex = _spaltenAnzahl - 1;
+                var reihenIndex = aktuelleReihe;
 
                 var diagonalenPlaetze = new List<Platz>();
 
-                while (spaltenIndex >= 0 && reihenIndex < reihenAnzahl)
+                while (spaltenIndex >= 0 && reihenIndex < _reihenAnzahl)
                 {
-                    diagonalenPlaetze.Add(plaetze[spaltenIndex][reihenIndex]);
+                    diagonalenPlaetze.Add(_plaetze[spaltenIndex][reihenIndex]);
                     spaltenIndex--;
                     reihenIndex++;
                 }
-                if (diagonalenPlaetze.Count >= 4)
-                {
-                    diagonale.Add(new Diagonale(diagonalenPlaetze));
-                }
+
+                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(_spaltenAnzahl - 1, aktuelleReihe, diagnoalenrichtung, diagonalenPlaetze));
             }
 
-            // Intialisierung Spielbrett
-
-            return new Spielbrett(plaetze, reihen, spalten, diagonale);
+            return _diagonale;
         }
     }
 }

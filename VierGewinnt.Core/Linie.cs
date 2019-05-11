@@ -41,9 +41,6 @@ namespace VierGewinnt.Core
             return null;
         }
 
-        public IReadOnlyList<Platz> Plaetze
-        {
-            get { return _plaetze; }
-        }
+        public IReadOnlyList<Platz> Plaetze => _plaetze;
     }
 }

@@ -1,14 +1,34 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace VierGewinnt.Core
 {
-    public class Diagonale
+    public class Diagonale :Linie
     {
-        private List<Platz> diagnalenPlaetze;
+        private readonly int _startIndexX;
+        private readonly int _startIndexY;
+        private readonly Diagnoalenrichtung _diagnoalenrichtung;
 
-        public Diagonale(List<Platz> diagnalenPlaetze)
+        public Diagonale(int startIndexX, 
+            int startIndexY, 
+            Diagnoalenrichtung diagnoalenrichtung, 
+            IReadOnlyList<Platz> plaetze) :base(plaetze)
         {
-            this.diagnalenPlaetze = diagnalenPlaetze;
+            if (startIndexX < 0 || startIndexY < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+
+            _startIndexX = startIndexX;
+            _startIndexY = startIndexY;
+            _diagnoalenrichtung = diagnoalenrichtung;
         }
+
+        public Diagnoalenrichtung Diagnoalenrichtung => _diagnoalenrichtung;
+
+        public int StartIndexY => _startIndexY;
+
+        public int StartIndexX => _startIndexX;
     }
 }

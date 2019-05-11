@@ -4,13 +4,13 @@ namespace VierGewinnt.Core
 {
     public class Reihe
     {
-        private readonly IReadOnlyList<Platz> plaetze;
+        private readonly IReadOnlyList<Platz> _plaetze;
 
         public Reihe(List<Platz> plaetze)
         {
-            this.plaetze = plaetze;
+            _plaetze = plaetze;
         }
 
-        public IReadOnlyList<Platz> Plaetze => plaetze;
+        public IReadOnlyList<Platz> Plaetze => _plaetze;
     }
 }
