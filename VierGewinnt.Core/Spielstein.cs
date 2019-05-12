@@ -4,20 +4,16 @@ namespace VierGewinnt.Core
 {
     public class Spielstein
     {
-        private readonly Farbe _farbe;
-        private readonly string _spielerName;
-
         public Spielstein(Farbe farbe, string spielerName)
         {
-            if (string.IsNullOrEmpty(spielerName))
-            {throw new ArgumentException("message", nameof(spielerName));}
+            if (string.IsNullOrEmpty(spielerName)) throw new ArgumentException("message", nameof(spielerName));
 
-            _farbe = farbe ?? throw new ArgumentNullException(nameof(farbe));
-            _spielerName = spielerName;
+            Farbe = farbe ?? throw new ArgumentNullException(nameof(farbe));
+            SpielerName = spielerName;
         }
 
-        public Farbe Farbe => _farbe;
+        public Farbe Farbe { get; }
 
-        public string SpielerName => _spielerName;
+        public string SpielerName { get; }
     }
 }
