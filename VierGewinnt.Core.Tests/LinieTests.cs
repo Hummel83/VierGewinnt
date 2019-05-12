@@ -54,8 +54,8 @@ namespace VierGewinnt.Core.Tests
                 new Platz(0,1){Spielstein = new Spielstein(new Farbe(0,128,0), "Muh")},
                 new Platz(0,2){Spielstein = new Spielstein(new Farbe(128,0,0), "Draht")},
                 new Platz(0,3){Spielstein = new Spielstein(new Farbe(128,0,0), "Draht")},
-                new Platz(0,0),
-                new Platz(0,1)
+                new Platz(1,0),
+                new Platz(1,1)
             };
 
             var testTarget = new LinieMock(plaetze);
