@@ -6,7 +6,7 @@ coverage:
     patch:
       default:
         target: 50
-    project:                  
+    project:
       default:
         enabled: yes
         threshold: 1
