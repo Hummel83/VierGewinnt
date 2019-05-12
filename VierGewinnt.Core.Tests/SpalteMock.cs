@@ -6,14 +6,11 @@ namespace VierGewinnt.Core.Tests
     {
         private int _anzahlLasseSpielsteinFallenAufrufe;
 
+        public bool WurdeLasseSpielsteinFallenGenauEinmalAufgerufen => _anzahlLasseSpielsteinFallenAufrufe == 1;
+
         public void LasseSpielsteinFallen(Spielstein spielstein)
         {
             _anzahlLasseSpielsteinFallenAufrufe++;
-        }
-
-        public bool WurdeLasseSpielsteinFallenGenauEinmalAufgerufen
-        {
-            get { return _anzahlLasseSpielsteinFallenAufrufe == 1; }
         }
 
         public bool IstSpalteVoll => throw new NotSupportedException();

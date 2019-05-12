@@ -3,7 +3,7 @@
 namespace VierGewinnt.View.WPF
 {
     /// <summary>
-    /// Interaction logic for SpielerView.xaml
+    ///     Interaction logic for SpielerView.xaml
     /// </summary>
     public partial class SpielerView : UserControl
     {

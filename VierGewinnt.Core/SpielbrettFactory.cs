@@ -5,12 +5,12 @@ namespace VierGewinnt.Core
 {
     public class SpielbrettFactory
     {
-        private int _spaltenAnzahl;
-        private int _reihenAnzahl;
-        private Platz[][] _plaetze;
-        private List<Spalte> _spalten;
-        private List<Reihe> _reihen;
         private List<Diagonale> _diagonale;
+        private Platz[][] _plaetze;
+        private List<Reihe> _reihen;
+        private int _reihenAnzahl;
+        private List<Spalte> _spalten;
+        private int _spaltenAnzahl;
 
         public Spielbrett Erstelle(int reihenAnzahl, int spaltenAnzahl)
         {
@@ -47,10 +47,8 @@ namespace VierGewinnt.Core
             {
                 var spaltenplaetze = new List<Platz>();
                 for (var aktuelleReihe = 0; aktuelleReihe < _reihenAnzahl; aktuelleReihe++)
-                {
                     spaltenplaetze.Add(_plaetze[aktuelleSpalte][aktuelleReihe]);
-                }
-                    
+
                 _spalten.Add(new Spalte(spaltenplaetze));
             }
 
@@ -64,9 +62,7 @@ namespace VierGewinnt.Core
             {
                 var reihenplaetze = new List<Platz>();
                 for (var aktuelleSpalte = 0; aktuelleSpalte < _spaltenAnzahl; aktuelleSpalte++)
-                {
                     reihenplaetze.Add(_plaetze[aktuelleSpalte][aktuelleReihe]);
-                }
                 _reihen.Add(new Reihe(reihenplaetze));
             }
 
@@ -93,7 +89,8 @@ namespace VierGewinnt.Core
                     reihenIndex++;
                 }
 
-                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(aktuelleSpalte,0, diagnoalenrichtung, diagonalenPlaetze));
+                if (diagonalenPlaetze.Count >= 4)
+                    _diagonale.Add(new Diagonale(aktuelleSpalte, 0, diagnoalenrichtung, diagonalenPlaetze));
             }
 
             for (var aktuelleReihe = 1; aktuelleReihe < _reihenAnzahl; aktuelleReihe++)
@@ -108,7 +105,8 @@ namespace VierGewinnt.Core
                     reihenIndex++;
                 }
 
-                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(0, aktuelleReihe, diagnoalenrichtung, diagonalenPlaetze));
+                if (diagonalenPlaetze.Count >= 4)
+                    _diagonale.Add(new Diagonale(0, aktuelleReihe, diagnoalenrichtung, diagonalenPlaetze));
             }
 
             // Diagonalen von rechts oben nach links unten
@@ -127,7 +125,8 @@ namespace VierGewinnt.Core
                     reihenIndex++;
                 }
 
-                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(aktuelleSpalte,0, diagnoalenrichtung, diagonalenPlaetze));
+                if (diagonalenPlaetze.Count >= 4)
+                    _diagonale.Add(new Diagonale(aktuelleSpalte, 0, diagnoalenrichtung, diagonalenPlaetze));
             }
 
             for (var aktuelleReihe = 1; aktuelleReihe < _reihenAnzahl; aktuelleReihe++)
@@ -144,7 +143,9 @@ namespace VierGewinnt.Core
                     reihenIndex++;
                 }
 
-                if (diagonalenPlaetze.Count >= 4) _diagonale.Add(new Diagonale(_spaltenAnzahl - 1, aktuelleReihe, diagnoalenrichtung, diagonalenPlaetze));
+                if (diagonalenPlaetze.Count >= 4)
+                    _diagonale.Add(new Diagonale(_spaltenAnzahl - 1, aktuelleReihe, diagnoalenrichtung,
+                        diagonalenPlaetze));
             }
 
             return _diagonale;

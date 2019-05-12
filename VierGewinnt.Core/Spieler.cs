@@ -5,32 +5,28 @@ namespace VierGewinnt.Core
 {
     public class Spieler
     {
-        private readonly IList<Spielstein> _spielsteine;
-        private readonly string _spielerName;
-        private readonly Farbe _spielerFarbe;
-
-        public Spieler( string spielerName, IList<Spielstein> spielstein, Farbe spielerFarbe)
+        public Spieler(string spielerName, IList<Spielstein> spielstein, Farbe spielerFarbe)
         {
             if (spielstein == null) throw new ArgumentNullException(nameof(spielstein));
             if (string.IsNullOrWhiteSpace(spielerName)) throw new ArgumentNullException(nameof(spielerName));
 
-            _spielsteine = spielstein;
-            _spielerName = spielerName;
-            _spielerFarbe = spielerFarbe;
+            Spielsteine = spielstein;
+            SpielerName = spielerName;
+            SpielerFarbe = spielerFarbe;
         }
 
-        public string SpielerName => _spielerName;
+        public string SpielerName { get; }
 
-        public IList<Spielstein> Spielsteine => _spielsteine;
+        public IList<Spielstein> Spielsteine { get; }
 
-        public Farbe SpielerFarbe => _spielerFarbe;
+        public Farbe SpielerFarbe { get; }
 
         public void SpieleZug(ISpalte spalte)
         {
             if (spalte == null) throw new ArgumentNullException(nameof(spalte));
 
-            var obersterSpielstein = _spielsteine[0];
-            _spielsteine.RemoveAt(0);
+            var obersterSpielstein = Spielsteine[0];
+            Spielsteine.RemoveAt(0);
 
             spalte.LasseSpielsteinFallen(obersterSpielstein);
         }

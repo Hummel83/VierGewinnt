@@ -7,27 +7,27 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <d:UserControl.DataContext>
-        <sd:SpielerViewModelSampleData IstAnDerReihe="True"></sd:SpielerViewModelSampleData>
+        <sd:SpielerViewModelSampleData IstAnDerReihe="True" />
     </d:UserControl.DataContext>
 
-            <Border BorderThickness="5" BorderBrush="{Binding Path=IstAnDerReihe, Converter={StaticResource IstAnDerReiheZuBrushConverter}}">
+    <Border BorderThickness="5"
+            BorderBrush="{Binding Path=IstAnDerReihe, Converter={StaticResource IstAnDerReiheZuBrushConverter}}">
         <Grid Margin="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <TextBlock Text="{Binding Spieler.SpielerName}"
-                   FontFamily="Segoe UI Light"
-                   FontSize="40"
-                   HorizontalAlignment="Center"
-                   Foreground="{Binding Spieler.SpielerFarbe, Converter={StaticResource Farbconverter}}"/>
+                       FontFamily="Segoe UI Light"
+                       FontSize="40"
+                       HorizontalAlignment="Center"
+                       Foreground="{Binding Spieler.SpielerFarbe, Converter={StaticResource Farbconverter}}" />
             <TextBlock Text="{Binding Path=Spieler.Spielsteine.Count, StringFormat=\{0\} Spielsteine}"
-                   Grid.Row="1"
-                   HorizontalAlignment="Center"
-                   FontSize="20"
-                   Margin="3"
-                   Foreground="{Binding Spieler.SpielerFarbe, Converter={StaticResource Farbconverter}}">
-            </TextBlock>
+                       Grid.Row="1"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       Margin="3"
+                       Foreground="{Binding Spieler.SpielerFarbe, Converter={StaticResource Farbconverter}}" />
         </Grid>
     </Border>
 </UserControl>
