@@ -11,7 +11,7 @@ namespace VierGewinnt.Core.Tests
         {
             var spielstein = new Spielstein(new Farbe(0, 0, 0), "Bratwurst");
             var plaetze = new List<Platz>();
-            for (var i = 0; i < 6; i++) plaetze.Add(new Platz(0,i));
+            for (var i = 0; i < 6; i++) plaetze.Add(new Platz(0, i));
             plaetze[0].Spielstein = spielstein;
             plaetze[1].Spielstein = spielstein;
 

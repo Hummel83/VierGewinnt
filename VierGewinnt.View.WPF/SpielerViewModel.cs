@@ -6,22 +6,20 @@ namespace VierGewinnt.View.WPF
 {
     public class SpielerViewModel : ISpielerViewModel, INotifyPropertyChanged
     {
-        private readonly Spieler _spieler;
         private bool _istAnDerReihe;
 
         public SpielerViewModel(Spieler spieler)
         {
-            _spieler = spieler;
+            Spieler = spieler;
         }
 
-        public Spieler Spieler
-        {
-            get { return _spieler; }
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public Spieler Spieler { get; }
 
         public bool IstAnDerReihe
         {
-            get { return _istAnDerReihe; }
+            get => _istAnDerReihe;
             set
             {
                 if (_istAnDerReihe == value) return;
@@ -31,15 +29,10 @@ namespace VierGewinnt.View.WPF
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
