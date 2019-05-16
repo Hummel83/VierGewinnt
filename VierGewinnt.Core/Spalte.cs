@@ -10,7 +10,7 @@ namespace VierGewinnt.Core
         {
         }
 
-        public IReadOnlyList<Platz> Plaetze { get; }
+        public IReadOnlyList<Platz> Plaetze { get; } 
 
         public void LasseSpielsteinFallen(Spielstein spielstein)
         {
@@ -28,5 +28,8 @@ namespace VierGewinnt.Core
         {
             get { return Plaetze.All(platz => platz.Spielstein != null); }
         }
+
+
+
     }
 }
