@@ -5,12 +5,14 @@ using System.Linq;
 namespace VierGewinnt.Core
 {
     public class Spalte : Linie, ISpalte
+
     {
         public Spalte(IReadOnlyList<Platz> plaetze) : base(plaetze)
         {
+            Plaetze = plaetze;
         }
 
-        public IReadOnlyList<Platz> Plaetze { get; } 
+        public IReadOnlyList<Platz> Plaetze { get; }
 
         public void LasseSpielsteinFallen(Spielstein spielstein)
         {
@@ -28,8 +30,5 @@ namespace VierGewinnt.Core
         {
             get { return Plaetze.All(platz => platz.Spielstein != null); }
         }
-
-
-
     }
 }
