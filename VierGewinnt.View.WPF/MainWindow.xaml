@@ -10,32 +10,32 @@
         WindowStartupLocation="CenterScreen">
 
     <d:Window.DataContext>
-        <sd:MainWindowViewModelSampleData/>
+        <sd:MainWindowViewModelSampleData />
     </d:Window.DataContext>
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="282*"/>
-            <RowDefinition Height="37*"/>
+            <RowDefinition Height="282*" />
+            <RowDefinition Height="37*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="250" />
         </Grid.ColumnDefinitions>
         <ContentControl Content="{Binding Path=SpielerViewModels[0]}"
-                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}" 
-                        Margin="30 0"/>
+                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}"
+                        Margin="30 0" />
 
         <ContentControl Grid.Row="0" Grid.Column="2" Content="{Binding Path=SpielerViewModels[1]}"
-                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}" 
-                        Margin="30 0"/>
-        <TextBlock Text="{Binding GewinnerName, StringFormat=\{0\} hat gewonnen!}" 
+                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}"
+                        Margin="30 0" />
+        <TextBlock Text="{Binding GewinnerName, StringFormat=\{0\} hat gewonnen!}"
                    Grid.Row="1"
                    Grid.Column="0"
                    Grid.ColumnSpan="3"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontFamily="Segoe UI Semibold"
-                   FontSize="50"/>
+                   FontSize="50" />
     </Grid>
 </Window>
