@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace VierGewinnt
+namespace VierGewinnt.View.WPF
 {
     /// <summary>
     ///     Interaction logic for MainWindow.xaml

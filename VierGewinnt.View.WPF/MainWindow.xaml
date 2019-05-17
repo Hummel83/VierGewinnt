@@ -1,10 +1,41 @@
-﻿<Window x:Class="VierGewinnt.MainWindow"
+﻿<Window x:Class="VierGewinnt.View.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:VierGewinnt"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:sd="clr-namespace:VierGewinnt.View.WPF.SampleData"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid />
+        Title="VierGewinnt" Height="1000" Width="1900"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+
+    <d:Window.DataContext>
+        <sd:MainWindowViewModelSampleData />
+    </d:Window.DataContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="282*" />
+            <RowDefinition Height="37*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <ContentControl Content="{Binding Path=SpielerViewModels[0]}"
+                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}"
+                        Margin="30 0" />
+
+        <ContentControl Grid.Row="0" Grid.Column="2" Content="{Binding Path=SpielerViewModels[1]}"
+                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}"
+                        Margin="30 0" />
+        <TextBlock Text="{Binding GewinnerName, StringFormat=\{0\} hat gewonnen!}"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontFamily="Segoe UI Semibold"
+                   FontSize="50" />
+    </Grid>
 </Window>

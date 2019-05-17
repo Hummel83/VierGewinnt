@@ -5,12 +5,15 @@ namespace VierGewinnt.View.WPF.SampleData
 {
     public class SpielerViewModelSampleData : ISpielerViewModel
     {
-        public SpielerViewModelSampleData()
+        public SpielerViewModelSampleData() : this("Player B", new Farbe(0, 0, 128))
         {
-            var spielerFarbe = new Farbe(0, 0, 254);
-            const string spielerName = "Player B";
+        }
+
+        public SpielerViewModelSampleData(string spielerName, Farbe spielerFarbe)
+        {
             var spielstein = new List<Spielstein>();
             for (var i = 0; i < 21; i++) spielstein.Add(new Spielstein(spielerFarbe, spielerName));
+
             Spieler = new Spieler(spielerName, spielstein, spielerFarbe);
 
             IstAnDerReihe = true;

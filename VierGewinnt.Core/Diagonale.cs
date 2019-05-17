@@ -12,7 +12,6 @@ namespace VierGewinnt.Core
         {
             if (startIndexX < 0 || startIndexY < 0) throw new ArgumentOutOfRangeException();
 
-
             StartIndexX = startIndexX;
             StartIndexY = startIndexY;
             Diagnoalenrichtung = diagnoalenrichtung;

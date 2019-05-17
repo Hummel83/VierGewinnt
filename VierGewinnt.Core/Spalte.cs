@@ -12,7 +12,7 @@ namespace VierGewinnt.Core
             Plaetze = plaetze;
         }
 
-        public IReadOnlyList<Platz> Plaetze { get; }
+        public new IReadOnlyList<Platz> Plaetze { get; }
 
         public void LasseSpielsteinFallen(Spielstein spielstein)
         {

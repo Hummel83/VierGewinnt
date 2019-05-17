@@ -7,10 +7,9 @@ namespace VierGewinnt.Core
     {
         public Spieler(string spielerName, IList<Spielstein> spielstein, Farbe spielerFarbe)
         {
-            if (spielstein == null) throw new ArgumentNullException(nameof(spielstein));
             if (string.IsNullOrWhiteSpace(spielerName)) throw new ArgumentNullException(nameof(spielerName));
 
-            Spielsteine = spielstein;
+            Spielsteine = spielstein ?? throw new ArgumentNullException(nameof(spielstein));
             SpielerName = spielerName;
             SpielerFarbe = spielerFarbe;
         }
