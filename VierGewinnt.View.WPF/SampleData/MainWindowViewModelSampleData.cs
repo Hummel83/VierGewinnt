@@ -12,20 +12,15 @@ namespace VierGewinnt.View.WPF.SampleData
             var spielerViewModel = new List<ISpielerViewModel>
             {
                 new SpielerViewModelSampleData("Player A", new Farbe(128, 0, 0)),
-                new SpielerViewModelSampleData("Player A", new Farbe(0, 0, 128)){IstAnDerReihe = false}
+                new SpielerViewModelSampleData("Player B", new Farbe(0, 0, 128)){IstAnDerReihe = false}
             };
 
             _spielerViewModels = spielerViewModel;
         }
 
-        public ISpielBrettViewModel SpielBrettViewModel
-        {
-            get { return null; }
-        }
+        public ISpielBrettViewModel SpielBrettViewModel => null;
 
-        public IReadOnlyList<ISpielerViewModel> SpielerViewModels
-        {
-            get { return _spielerViewModels; }
-        }
+        public IReadOnlyList<ISpielerViewModel> SpielerViewModels => _spielerViewModels;
+        public string GewinnerName => _spielerViewModels[0].Spieler.SpielerName;
     }
 }

@@ -5,21 +5,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:sd="clr-namespace:VierGewinnt.View.WPF.SampleData"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="VierGewinnt" Height="1000" Width="1900"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+
     <d:Window.DataContext>
-        <sd:MainWindowViewModelSampleData></sd:MainWindowViewModelSampleData>
+        <sd:MainWindowViewModelSampleData/>
     </d:Window.DataContext>
-    <Grid >
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="282*"/>
             <RowDefinition Height="37*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="129*"/>
-            <ColumnDefinition Width="253*"/>
-            <ColumnDefinition Width="135*"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
-        <ContentControl Content="{Binding Path=SpielerViewModels[0]}"></ContentControl>
-        <ContentControl Grid.Row="2"></ContentControl>
+        <ContentControl Content="{Binding Path=SpielerViewModels[0]}"
+                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}" 
+                        Margin="30 0"/>
+
+        <ContentControl Grid.Row="0" Grid.Column="2" Content="{Binding Path=SpielerViewModels[1]}"
+                        ContentTemplate="{StaticResource SpielerViewModelDataTemplate}" 
+                        Margin="30 0"/>
+        <TextBlock Text="{Binding GewinnerName, StringFormat=\{0\} hat gewonnen!}" 
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontFamily="Segoe UI Semibold"
+                   FontSize="50"/>
     </Grid>
 </Window>

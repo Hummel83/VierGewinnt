@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using VierGewinnt.Core;
 
 namespace VierGewinnt.View.WPF
 {
@@ -7,5 +8,9 @@ namespace VierGewinnt.View.WPF
         ISpielBrettViewModel SpielBrettViewModel { get; }
     
         IReadOnlyList<ISpielerViewModel> SpielerViewModels { get; }
+
+        string GewinnerName { get; }
+
+
     }
 }

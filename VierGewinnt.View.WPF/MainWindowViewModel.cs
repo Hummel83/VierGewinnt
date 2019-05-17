@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VierGewinnt.Core;
 
 namespace VierGewinnt.View.WPF
 {
@@ -23,6 +24,11 @@ namespace VierGewinnt.View.WPF
         public IReadOnlyList<ISpielerViewModel> SpielerViewModels
         {
             get { return _spielerViewModels; }
+        }
+
+        public string GewinnerName
+        {
+            get { return null; }
         }
     }
 }
