@@ -4,7 +4,7 @@ branches:
   only:
   - master
 
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 platform: Any CPU
 
@@ -17,7 +17,6 @@ assembly_info:
   assembly_informational_version: '{version}'
 
 dotnet_csproj:
-
   patch: true
   file: '**\*.csproj'
   version: '{version}'
@@ -36,5 +35,6 @@ build:
   verbosity: normal
 
 test_script:
-- OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[VierGewinnt*]*" -output:".\MyProject_coverage.xml" -oldstyle
+- OpenCover.Console.exe -register:administrator -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[VierGewinnt*]*" -output:".\MyProject_coverage.xml" -oldstyle
+
 - codecov -f ".\MyProject_coverage.xml"
